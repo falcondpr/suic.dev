@@ -133,12 +133,12 @@ const CalendarBody: React.FC<CalendarBodyProps> = ({
                 !isEqual(day, date) &&
                   !isToday(day) &&
                   !isSameMonth(day, firstDayCurrentMonth)
-                  ? "text-gray-300"
+                  ? "text-gray-300/90"
                   : "",
                 isEqual(day, date) &&
                   !isToday(day) &&
                   !isSameMonth(day, firstDayCurrentMonth)
-                  ? "after:absolute after:top-0 after:rounded-lg after:-z-10 after:left-1/2 after:-translate-x-1/2 after:w-[31.58px] after:h-9 after:bg-gray-400 text-white after:hover:bg-gray-500"
+                  ? "after:absolute after:top-0 after:rounded-lg after:-z-10 after:left-1/2 after:-translate-x-1/2 after:w-[31.58px] after:h-9 after:bg-gray-400/90 text-white after:hover:bg-gray-200"
                   : "",
                 isEqual(day, date) && isToday(day)
                   ? "after:absolute after:top-0 after:rounded-lg after:-z-10 after:left-1/2 after:-translate-x-1/2 after:w-[31.58px] after:h-9 after:bg-red-600 text-white hover:bg-red-500/70"
