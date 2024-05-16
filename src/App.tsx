@@ -36,20 +36,27 @@ const App: React.FC = () => {
                 onClick={() => setShowElement(false)}
               />
               <motion.div
-                key={activeView}
-                initial={{ opacity: 0, y: -0 }}
+                initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -0 }}
+                exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.2 }}
                 className="z-[500] p-3 absolute shadow-sm top-[54px] left-0 w-64 h-max bg-white border border-gray-300 rounded-md"
               >
-                {activeView === "calendar" ? (
-                  <CalendarBody setActiveView={setActiveView} />
-                ) : activeView === "months" ? (
-                  <ListMonths setActiveView={setActiveView} />
-                ) : (
-                  <ListYears setActiveView={setActiveView} />
-                )}
+                <motion.div
+                  key={activeView}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {activeView === "calendar" ? (
+                    <CalendarBody setActiveView={setActiveView} />
+                  ) : activeView === "months" ? (
+                    <ListMonths setActiveView={setActiveView} />
+                  ) : (
+                    <ListYears setActiveView={setActiveView} />
+                  )}
+                </motion.div>
               </motion.div>
             </>
           )}
