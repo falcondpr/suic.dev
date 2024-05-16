@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
 import CalendarBody from "./components/CalendarBody";
 import ListMonths from "./components/ListMonths";
 import ListYears from "./components/ListYears";
@@ -35,10 +36,11 @@ const App: React.FC = () => {
                 onClick={() => setShowElement(false)}
               />
               <motion.div
-                initial={{ opacity: 0, y: -6 }}
+                key={activeView}
+                initial={{ opacity: 0, y: -0 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -6 }}
-                transition={{ duration: 0.15 }}
+                exit={{ opacity: 0, y: -0 }}
+                transition={{ duration: 0.2 }}
                 className="z-[500] p-3 absolute shadow-sm top-[54px] left-0 w-64 h-max bg-white border border-gray-300 rounded-md"
               >
                 {activeView === "calendar" ? (

@@ -10,7 +10,7 @@ const ListMonths: React.FC<ListMonthsProps> = ({ setActiveView }) => {
       <header>
         <button
           onClick={() => setActiveView("years")}
-          className="hover:border-transparent py-1 px-3 hover:bg-gray-200/30 rounded-md text-lg font-medium text-gray-800"
+          className="hover:border-transparent py-1 px-3 hover:bg-gray-200/30 rounded-md text-lg font-semibold text-gray-800"
         >
           2024
         </button>
@@ -22,7 +22,7 @@ const ListMonths: React.FC<ListMonthsProps> = ({ setActiveView }) => {
           .map((_, index) => (
             <button
               onClick={() => setActiveView("calendar")}
-              className="p-2 hover:bg-gray-300/40 bg-gray-200/40 font-medium text-gray-700 rounded-md"
+              className="p-2 hover:bg-gray-100 text-gray-600 rounded-md"
               key={index}
             >
               JAN

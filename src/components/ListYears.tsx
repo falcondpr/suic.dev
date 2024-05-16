@@ -13,7 +13,7 @@ const ListYears: React.FC<ListYearsProps> = ({ setActiveView }) => {
           .map((_, index) => (
             <button
               onClick={() => setActiveView("calendar")}
-              className="p-2 bg-gray-200/40 hover:bg-gray-300/40 font-medium text-gray-800 rounded-md"
+              className="p-2 hover:bg-gray-100 text-gray-600 rounded-md"
               key={index}
             >
               2020

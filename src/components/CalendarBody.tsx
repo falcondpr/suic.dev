@@ -12,10 +12,10 @@ const CalendarBody: React.FC<CalendarBodyProps> = ({
     <div>
       <header className="flex items-center justify-between">
         <button
-          className="text-gray-800 flex items-center gap-x-2"
+          className="text-gray-700 flex items-center gap-x-2"
           onClick={() => setActiveView("months")}
         >
-          <span className="font-medium">May 2024</span>
+          <span className="font-bold">May 2024</span>
           <ChevronDown className="w-4 h-4" />
         </button>
         <div className="flex items-center gap-x-1">
@@ -39,13 +39,13 @@ const CalendarBody: React.FC<CalendarBodyProps> = ({
           <p className="text-sm text-gray-400">S</p>
         </div>
 
-        <div className="grid mt-2 grid-cols-7 justify-items-center gap-0.5">
+        <div className="grid mt-2 grid-cols-7 justify-items-center">
           {Array(31)
             .fill(0)
             .map((_, index) => (
               <button
                 key={index}
-                className="hover:bg-gray-200/50 p-2 rounded-lg text-sm text-gray-900"
+                className="hover:bg-gray-200/50 p-2 rounded-lg text-sm text-gray-700"
               >
                 {index + 1}
               </button>
