@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { format } from "date-fns";
 
 import CalendarBody from "./components/CalendarBody";
 import ListMonths from "./components/ListMonths";
 import ListYears from "./components/ListYears";
+import { dateStore } from "./store/date";
 
 export type ActiveViewProps = "calendar" | "months" | "years";
 
 const App: React.FC = () => {
+  const { date } = dateStore((state) => state);
+
   const [showElement, setShowElement] = useState<boolean>(false);
   const [activeView, setActiveView] =
     useState<ActiveViewProps>("calendar");
@@ -25,7 +29,7 @@ const App: React.FC = () => {
           }
           className="shadow-sm text-slate-800 relative z-[500] bg-white border border-gray-300 py-2 px-3 rounded-md"
         >
-          2024/04/04
+          {format(date, "yyyy/MM/dd")}
         </button>
 
         <AnimatePresence>
