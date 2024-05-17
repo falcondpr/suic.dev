@@ -2,10 +2,11 @@ import { format } from "date-fns";
 import clsx from "clsx";
 
 import { viewStore } from "../store/view";
-import { useContext } from "react";
-import { DateContext } from "../context/DateContext";
 
-interface ListMonthsProps {}
+interface ListMonthsProps {
+  date: Date;
+  setMonth: (value: number) => void;
+}
 
 const months = [
   { spanish: "Enero", english: "January", value: 0 },
@@ -22,9 +23,10 @@ const months = [
   { spanish: "Diciembre", english: "December", value: 11 },
 ];
 
-const ListMonths: React.FC<ListMonthsProps> = () => {
-  const { date, setMonth } = useContext(DateContext);
-
+const ListMonths: React.FC<ListMonthsProps> = ({
+  date,
+  setMonth,
+}) => {
   const setActiveView = viewStore((state) => state.setActiveView);
 
   return (

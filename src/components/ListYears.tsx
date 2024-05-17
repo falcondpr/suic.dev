@@ -2,18 +2,18 @@ import clsx from "clsx";
 import { format } from "date-fns";
 
 import { viewStore } from "../store/view";
-import { useContext } from "react";
-import { DateContext } from "../context/DateContext";
 
-interface ListYearsProps {}
+interface ListYearsProps {
+  date: Date;
+  setYear: (value: number) => void;
+}
 
-const ListYears: React.FC<ListYearsProps> = () => {
+const ListYears: React.FC<ListYearsProps> = ({ date, setYear }) => {
   const years = [];
   for (let year = 2030; year >= 1970; year--) {
     years.push(year);
   }
 
-  const { date, setYear } = useContext(DateContext);
   const { setActiveView } = viewStore((state) => state);
 
   return (

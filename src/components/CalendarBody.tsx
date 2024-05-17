@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   add,
@@ -17,9 +17,11 @@ import {
 import clsx from "clsx";
 
 import { viewStore } from "../store/view";
-import { DateContext } from "../context/DateContext";
 
-interface CalendarBodyProps {}
+interface CalendarBodyProps {
+  date: Date;
+  setDate: (value: Date) => void;
+}
 
 const colStartClasses = [
   "",
@@ -31,10 +33,10 @@ const colStartClasses = [
   "col-start-7",
 ];
 
-const CalendarBody: React.FC<CalendarBodyProps> = () => {
-  // const today = startOfToday();
-  const { date, setDate } = useContext(DateContext);
-
+const CalendarBody: React.FC<CalendarBodyProps> = ({
+  date,
+  setDate,
+}) => {
   const { setActiveView } = viewStore((state) => state);
 
   const [currentMonth, setCurrentMonth] = useState(
