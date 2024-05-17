@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   add,
@@ -11,17 +11,15 @@ import {
   isSameMonth,
   isToday,
   parse,
-  startOfToday,
+  // startOfToday,
   startOfWeek,
 } from "date-fns";
 import clsx from "clsx";
 
-import { ActiveViewProps } from "../App";
-import { dateStore } from "../store/date";
+import { viewStore } from "../store/view";
+import { DateContext } from "../context/DateContext";
 
-interface CalendarBodyProps {
-  setActiveView: (value: ActiveViewProps) => void;
-}
+interface CalendarBodyProps {}
 
 const colStartClasses = [
   "",
@@ -33,14 +31,14 @@ const colStartClasses = [
   "col-start-7",
 ];
 
-const CalendarBody: React.FC<CalendarBodyProps> = ({
-  setActiveView,
-}) => {
-  const today = startOfToday();
+const CalendarBody: React.FC<CalendarBodyProps> = () => {
+  // const today = startOfToday();
+  const { date, setDate } = useContext(DateContext);
 
-  const { date, setDate } = dateStore((state) => state);
+  const { setActiveView } = viewStore((state) => state);
+
   const [currentMonth, setCurrentMonth] = useState(
-    format(today, "MMM-yyyy")
+    format(date, "MMM-yyyy")
   );
   const firstDayCurrentMonth = parse(
     currentMonth,
@@ -66,11 +64,6 @@ const CalendarBody: React.FC<CalendarBodyProps> = ({
     });
     setCurrentMonth(format(firstDayNextMonth, "MMM-yyyy"));
   };
-
-  useEffect(() => {
-    setDate(today);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setDate]);
 
   return (
     <div>
@@ -123,7 +116,7 @@ const CalendarBody: React.FC<CalendarBodyProps> = ({
                   ? "after:absolute after:top-0 after:rounded-lg after:-z-10 after:left-1/2 after:-translate-x-1/2 after:w-[31.58px] after:h-9 after:bg-gray-700 text-white after:hover:bg-gray-500/80"
                   : "",
                 !isEqual(day, date) && isToday(day)
-                  ? "text-[#FF3B30]"
+                  ? "text-red-500"
                   : "",
                 !isEqual(day, date) &&
                   !isToday(day) &&

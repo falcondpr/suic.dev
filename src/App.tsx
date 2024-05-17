@@ -1,24 +1,25 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { format } from "date-fns";
 
 import CalendarBody from "./components/CalendarBody";
 import ListMonths from "./components/ListMonths";
 import ListYears from "./components/ListYears";
-import { dateStore } from "./store/date";
+import { viewStore } from "./store/view";
+import { DateContext } from "./context/DateContext";
+import { StatusContext } from "./context/StatusContext";
 
 export type ActiveViewProps = "calendar" | "months" | "years";
 
 const App: React.FC = () => {
-  const { date } = dateStore((state) => state);
+  const { date } = useContext(DateContext);
+  const { showElement, setShowElement } = useContext(StatusContext);
 
-  const [showElement, setShowElement] = useState<boolean>(false);
-  const [activeView, setActiveView] =
-    useState<ActiveViewProps>("calendar");
+  const { setActiveView, activeView } = viewStore((state) => state);
 
   useEffect(() => {
     setActiveView("calendar");
-  }, [showElement]);
+  }, [showElement, setActiveView]);
 
   return (
     <div className="p-4">
@@ -44,7 +45,7 @@ const App: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.2 }}
-                className="z-[500] p-3 absolute shadow-sm top-[54px] left-0 w-64 h-max bg-white border border-gray-300 rounded-md"
+                className="max-h-[315px] overflow-y-auto z-[500] p-3 absolute shadow-sm top-[54px] left-0 w-64 h-max bg-white border border-gray-300 rounded-md"
               >
                 <motion.div
                   key={activeView}
@@ -54,11 +55,11 @@ const App: React.FC = () => {
                   transition={{ duration: 0.5 }}
                 >
                   {activeView === "calendar" ? (
-                    <CalendarBody setActiveView={setActiveView} />
+                    <CalendarBody />
                   ) : activeView === "months" ? (
-                    <ListMonths setActiveView={setActiveView} />
+                    <ListMonths />
                   ) : (
-                    <ListYears setActiveView={setActiveView} />
+                    <ListYears />
                   )}
                 </motion.div>
               </motion.div>
