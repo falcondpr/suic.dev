@@ -51,6 +51,11 @@ const ListMonths: React.FC<ListMonthsProps> = ({
               "p-2 hover:bg-gray-100 text-gray-600 rounded-md uppercase",
               format(date, "MMMM") === month.english
                 ? "bg-red-600 text-white hover:bg-red-500"
+                : "",
+              new Date().getMonth() === month.value &&
+                date.getFullYear() === new Date().getFullYear() &&
+                date.getMonth() !== month.value
+                ? "ring-1 ring-red-300"
                 : ""
             )}
             key={index}

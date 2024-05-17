@@ -23,12 +23,16 @@ const ListYears: React.FC<ListYearsProps> = ({ date, setYear }) => {
           <button
             onClick={() => {
               setYear(year);
-              setActiveView("calendar");
+              setActiveView("months");
             }}
             className={clsx(
               "p-2 hover:bg-gray-100 text-gray-600 rounded-md",
               +format(date, "yyyy") === year
                 ? "bg-red-600 text-white hover:bg-red-500"
+                : "",
+              new Date().getFullYear() === year &&
+                year !== date.getFullYear()
+                ? "ring-1 ring-red-300"
                 : ""
             )}
             key={index}
