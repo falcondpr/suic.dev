@@ -1,5 +1,5 @@
-import { format } from "date-fns";
 import clsx from "clsx";
+import { format } from "date-fns";
 
 import { viewStore } from "../store/view";
 

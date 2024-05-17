@@ -1,10 +1,10 @@
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import CalendarBody from "./CalendarBody";
 import ListMonths from "./ListMonths";
 import ListYears from "./ListYears";
 import { viewStore } from "../store/view";
-import { useState } from "react";
 
 interface CalendarProps {
   date: Date;

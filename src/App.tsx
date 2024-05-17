@@ -1,9 +1,9 @@
 import { useContext, useEffect } from "react";
 import { format } from "date-fns";
 
+import Calendar from "./components/Calendar";
 import { viewStore } from "./store/view";
 import { StatusContext } from "./context/StatusContext";
-import Calendar from "./components/Calendar";
 
 export type ActiveViewProps = "calendar" | "months" | "years";
 
