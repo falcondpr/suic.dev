@@ -13,7 +13,7 @@ const ListYears: React.FC<ListYearsProps> = () => {
     years.push(year);
   }
 
-  const { date } = useContext(DateContext);
+  const { date, setYear } = useContext(DateContext);
   const { setActiveView } = viewStore((state) => state);
 
   return (
@@ -21,7 +21,10 @@ const ListYears: React.FC<ListYearsProps> = () => {
       <div className="grid grid-cols-3 gap-2">
         {years.map((year, index) => (
           <button
-            onClick={() => setActiveView("calendar")}
+            onClick={() => {
+              setYear(year);
+              setActiveView("calendar");
+            }}
             className={clsx(
               "p-2 hover:bg-gray-100 text-gray-600 rounded-md",
               +format(date, "yyyy") === year
