@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import CalendarBody from "./CalendarBody";
@@ -10,24 +9,16 @@ interface CalendarProps {
   date: Date;
   show: boolean;
   setShow: (value: boolean) => void;
+  setDate: (value: Date) => void;
 }
 
 const Calendar: React.FC<CalendarProps> = ({
-  date: dateSendingByUser,
+  date,
+  setDate,
   setShow,
   show,
 }) => {
   const { activeView } = viewStore((state) => state);
-
-  const defaultDate = {
-    day: dateSendingByUser.getDate(),
-    month: dateSendingByUser.getMonth(),
-    year: dateSendingByUser.getFullYear(),
-  };
-
-  const [date, setDate] = useState(
-    new Date(defaultDate.year, defaultDate.month, defaultDate.day)
-  );
 
   const setMonth = (month: number) => {
     const newDate = new Date(

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { format } from "date-fns";
 
 import Calendar from "./components/Calendar";
@@ -8,7 +8,7 @@ import { StatusContext } from "./context/StatusContext";
 export type ActiveViewProps = "calendar" | "months" | "years";
 
 const App: React.FC = () => {
-  const date = new Date();
+  const [date, setDate] = useState(new Date());
 
   const { showElement, setShowElement } = useContext(StatusContext);
   const { setActiveView } = viewStore((state) => state);
@@ -32,6 +32,7 @@ const App: React.FC = () => {
         <Calendar
           show={showElement}
           date={date}
+          setDate={setDate}
           setShow={setShowElement}
         />
       </div>
