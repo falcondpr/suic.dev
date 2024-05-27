@@ -1,9 +1,11 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { Calendar as CalendarIcon } from "lucide-react";
 
 import CalendarBody from "./CalendarBody";
 import ListMonths from "./ListMonths";
 import ListYears from "./ListYears";
 import { viewStore } from "../store/view";
+import { useEffect } from "react";
 
 interface CalendarProps {
   date: Date;
@@ -12,30 +14,78 @@ interface CalendarProps {
   setDate: (value: Date) => void;
 }
 
-const Calendar: React.FC<CalendarProps> = ({
+export const Calendar: React.FC<CalendarProps> = ({
   date,
   setDate,
   setShow,
   show,
 }) => {
-  const { activeView } = viewStore((state) => state);
+  const { activeView, setActiveView } = viewStore((state) => state);
 
-  const setMonth = (month: number) => {
+  const setDay = (day: string) => {
     const newDate = new Date(
       date.getFullYear(),
-      month,
+      date.getMonth(),
+      +day
+    );
+    setDate(newDate);
+  };
+
+  const setMonth = (month: string) => {
+    const newDate = new Date(
+      date.getFullYear(),
+      +month - 1,
       date.getDate()
     );
     setDate(newDate);
   };
 
-  const setYear = (year: number) => {
-    const newDate = new Date(year, date.getMonth(), date.getDate());
+  const setYear = (year: string) => {
+    const newDate = new Date(+year, date.getMonth(), date.getDate());
     setDate(newDate);
   };
 
+  useEffect(() => {
+    setActiveView("calendar");
+  }, [show, setActiveView]);
+
   return (
     <AnimatePresence>
+      <div className="flex items-center gap-x-3 w-max shadow-sm text-slate-800 relative z-[500] bg-white border border-gray-300 py-2 px-3 rounded-md">
+        <div className="flex">
+          <input
+            name="years"
+            value={String(date.getFullYear())}
+            onChange={(e) => setYear(e.target.value)}
+            className="outline-none w-12 text-center bg-white"
+          />
+          <div className="text-gray-400/70">/</div>
+          <input
+            name="months"
+            value={String(date.getMonth() + 2)}
+            onChange={(e) => setMonth(e.target.value)}
+            className="outline-none w-7 text-center bg-white"
+          />
+          <div className="text-gray-400/70">/</div>
+          <input
+            type="day"
+            value={String(date.getDate())}
+            onChange={(e) => setDay(e.target.value)}
+            className="outline-none w-7 text-center bg-white"
+          />
+        </div>
+
+        <button
+          className="w-min"
+          onClick={() => (show ? setShow(false) : setShow(true))}
+        >
+          <CalendarIcon
+            size={20}
+            className="text-red-600 -mt-[1px]"
+          />
+        </button>
+      </div>
+
       {show && (
         <>
           <div
@@ -71,4 +121,4 @@ const Calendar: React.FC<CalendarProps> = ({
   );
 };
 
-export default Calendar;
+// export default Calendar;

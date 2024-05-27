@@ -5,7 +5,7 @@ import { viewStore } from "../store/view";
 
 interface ListYearsProps {
   date: Date;
-  setYear: (value: number) => void;
+  setYear: (value: string) => void;
 }
 
 const ListYears: React.FC<ListYearsProps> = ({ date, setYear }) => {
@@ -22,7 +22,7 @@ const ListYears: React.FC<ListYearsProps> = ({ date, setYear }) => {
         {years.map((year, index) => (
           <button
             onClick={() => {
-              setYear(year);
+              setYear(year.toString());
               setActiveView("months");
             }}
             className={clsx(

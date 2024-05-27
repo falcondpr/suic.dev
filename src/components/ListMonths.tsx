@@ -5,7 +5,7 @@ import { viewStore } from "../store/view";
 
 interface ListMonthsProps {
   date: Date;
-  setMonth: (value: number) => void;
+  setMonth: (value: string) => void;
 }
 
 const months = [
@@ -44,7 +44,7 @@ const ListMonths: React.FC<ListMonthsProps> = ({
         {months.map((month, index) => (
           <button
             onClick={() => {
-              setMonth(month.value);
+              setMonth((month.value + 1).toString());
               setActiveView("calendar");
             }}
             className={clsx(
