@@ -1,7 +1,11 @@
 {
-  "name": "@slu/dev",
-  "version": "0.0.0",
+  "name": "suic.dev",
+  "version": "0.0.2",
   "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

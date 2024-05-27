@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
   return (
     <div className="p-4">
-      <div className="relative">
+      <div className="container mx-auto">
         <Calendar
           show={showElement}
           setShow={setShowElement}
