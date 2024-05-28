@@ -63,7 +63,7 @@ export const Calendar: React.FC<CalendarProps> = ({
             <div className="text-gray-400/70">/</div>
             <input
               name="months"
-              value={String(date.getMonth() + 2)}
+              value={String(date.getMonth() + 1)}
               onChange={(e) => setMonth(e.target.value)}
               className="outline-none w-7 text-center bg-white"
             />
