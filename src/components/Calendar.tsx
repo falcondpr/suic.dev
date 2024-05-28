@@ -20,6 +20,8 @@ export const Calendar: React.FC<CalendarProps> = ({
   setShow,
   show,
 }) => {
+  console.log("date", String(date.getFullYear()));
+
   const { activeView, setActiveView } = viewStore((state) => state);
 
   const setDay = (day: string) => {
@@ -57,8 +59,9 @@ export const Calendar: React.FC<CalendarProps> = ({
             <input
               name="years"
               value={String(date.getFullYear())}
-              onChange={(e) => setYear(e.target.value)}
+              onChange={(e) => setYear(e.target.value.toString())}
               className="outline-none w-12 text-center bg-white"
+              min={0}
             />
             <div className="text-gray-400/70">/</div>
             <input

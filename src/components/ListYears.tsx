@@ -10,7 +10,7 @@ interface ListYearsProps {
 
 const ListYears: React.FC<ListYearsProps> = ({ date, setYear }) => {
   const years = [];
-  for (let year = 2030; year >= 1970; year--) {
+  for (let year = 2030; year >= 1900; year--) {
     years.push(year);
   }
 
