@@ -10,8 +10,8 @@ const App: React.FC = () => {
   const { showElement, setShowElement } = useContext(StatusContext);
 
   return (
-    <div className="p-4">
-      <div className="container mx-auto">
+    <div style={{ padding: 12 }}>
+      <div>
         <Calendar
           show={showElement}
           setShow={setShowElement}

@@ -1,0 +1,82 @@
+@import url("../shared/variables.css");
+
+.calendar {
+  position: relative;
+}
+
+.calendarContainer {
+  display: flex;
+  align-items: center;
+  gap: 0 12px;
+  width: max-content;
+  color: #333;
+  position: relative;
+  z-index: 500;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  padding: 8px 12px;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.calendarSubContainer {
+  display: flex;
+}
+
+.input {
+  outline: none;
+  width: 48px;
+  text-align: center;
+  background-color: #fff;
+  border: none;
+}
+
+.input2 {
+  outline: none;
+  width: 28px;
+  text-align: center;
+  background-color: #fff;
+  border: none;
+}
+
+.separator {
+  color: #d9d9d9;
+}
+
+.button {
+  width: min;
+  border: none;
+  background-color: #fff;
+  outline: none;
+}
+
+.calendarIcon {
+  color: var(--main-red-color);
+  margin-top: -1px;
+}
+
+.overlay {
+  cursor: pointer;
+  z-index: 450;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+}
+
+.body {
+  max-width: 315px;
+  overflow-y: auto;
+  z-index: 500;
+  padding: 12px;
+  position: absolute;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  top: 54px;
+  left: 0;
+  width: 256px;
+  height: max-content;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+}

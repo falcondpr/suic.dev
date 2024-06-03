@@ -4,6 +4,9 @@ import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  css: {
+    postcss: "./postcss.config.js", // Indica a Vite que use PostCSS
+  },
   build: {
     outDir: ".", // Colocar la salida en la raíz
     lib: {

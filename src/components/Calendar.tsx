@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar as CalendarIcon } from "lucide-react";
 
@@ -5,7 +6,8 @@ import CalendarBody from "./CalendarBody";
 import ListMonths from "./ListMonths";
 import ListYears from "./ListYears";
 import { viewStore } from "../store/view";
-import { useEffect } from "react";
+
+import styles from "./Calendar.module.css";
 
 interface CalendarProps {
   date: Date;
@@ -53,47 +55,44 @@ export const Calendar: React.FC<CalendarProps> = ({
 
   return (
     <AnimatePresence>
-      <div className="relative">
-        <div className="flex items-center gap-x-3 w-max shadow-sm text-slate-800 relative z-[500] bg-white border border-gray-300 py-2 px-3 rounded-md">
-          <div className="flex">
+      <div className={styles.calendar}>
+        <div className={styles.calendarContainer}>
+          <div className={styles.calendarSubContainer}>
             <input
               name="years"
               value={String(date.getFullYear())}
               onChange={(e) => setYear(e.target.value.toString())}
-              className="outline-none w-12 text-center bg-white"
+              className={styles.input}
               min={0}
             />
-            <div className="text-gray-400/70">/</div>
+            <div className={styles.separator}>/</div>
             <input
               name="months"
               value={String(date.getMonth() + 1)}
               onChange={(e) => setMonth(e.target.value)}
-              className="outline-none w-7 text-center bg-white"
+              className={styles.input2}
             />
-            <div className="text-gray-400/70">/</div>
+            <div className={styles.separator}>/</div>
             <input
               type="day"
               value={String(date.getDate())}
               onChange={(e) => setDay(e.target.value)}
-              className="outline-none w-7 text-center bg-white"
+              className={styles.input2}
             />
           </div>
 
           <button
-            className="w-min"
+            className={styles.button}
             onClick={() => (show ? setShow(false) : setShow(true))}
           >
-            <CalendarIcon
-              size={20}
-              className="text-red-600 -mt-[1px]"
-            />
+            <CalendarIcon size={20} className={styles.calendarIcon} />
           </button>
         </div>
 
         {show && (
           <>
             <div
-              className="cursor-pointer z-[450] fixed top-0 left-0 w-screen h-screen"
+              className={styles.overlay}
               onClick={() => setShow(false)}
             />
             <motion.div
@@ -101,7 +100,7 @@ export const Calendar: React.FC<CalendarProps> = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
-              className="max-h-[315px] overflow-y-auto z-[500] p-3 absolute shadow-sm top-[54px] left-0 w-64 h-max bg-white border border-gray-300 rounded-md"
+              className={styles.body}
             >
               <motion.div
                 key={activeView}
