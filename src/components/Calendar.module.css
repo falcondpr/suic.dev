@@ -75,7 +75,9 @@
   top: 54px;
   left: 0;
   width: 256px;
-  height: max-content;
+  height: min-content;
+  max-height: 300px;
+  overflow-y: auto;
   background-color: #fff;
   border: 1px solid #d9d9d9;
   border-radius: 5px;

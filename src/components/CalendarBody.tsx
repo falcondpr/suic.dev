@@ -16,6 +16,7 @@ import {
 import clsx from "clsx";
 
 import { viewStore } from "../store/view";
+import styles from "./CalendarBody.module.css";
 
 interface CalendarBodyProps {
   date: Date;
@@ -68,80 +69,80 @@ const CalendarBody: React.FC<CalendarBodyProps> = ({
 
   return (
     <div>
-      <header className="flex items-center justify-between">
+      <header className={styles.header}>
         <button
-          className="text-gray-700 flex items-center gap-x-2 select-none"
+          className={styles.button}
           onClick={() => setActiveView("months")}
         >
-          <span className="font-bold">
+          <span className={styles.buttonText}>
             {format(firstDayCurrentMonth, "MMMM yyyy")}
           </span>
-          <ChevronDown className="w-4 h-4" />
+          <ChevronDown className={styles.chevronIcon} />
         </button>
-        <div className="flex items-center gap-x-1">
+        <div className={styles.navigation}>
           <button
             onClick={previousMonth}
-            className="relative w-8 h-8 hover:bg-gray-200/50/70 rounded-lg grid place-items-center"
+            className={styles.navButton}
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className={styles.chevronIcon} />
           </button>
-          <button
-            onClick={nextMonth}
-            className="relative w-8 h-8 hover:bg-gray-200/50/70 rounded-lg grid place-items-center"
-          >
-            <ChevronRight className="w-4 h-4" />
+          <button onClick={nextMonth} className={styles.navButton}>
+            <ChevronRight className={styles.chevronIcon} />
           </button>
         </div>
       </header>
 
       <main>
-        <div className="grid mt-2 grid-cols-7 justify-items-center gap-x-1">
-          <p className="select-none text-sm text-gray-400">S</p>
-          <p className="select-none text-sm text-gray-400">M</p>
-          <p className="select-none text-sm text-gray-400">T</p>
-          <p className="select-none text-sm text-gray-400">W</p>
-          <p className="select-none text-sm text-gray-400">T</p>
-          <p className="select-none text-sm text-gray-400">F</p>
-          <p className="select-none text-sm text-gray-400">S</p>
+        <div className={styles.daysHeader}>
+          <p className={styles.dayLabel}>S</p>
+          <p className={styles.dayLabel}>M</p>
+          <p className={styles.dayLabel}>T</p>
+          <p className={styles.dayLabel}>W</p>
+          <p className={styles.dayLabel}>T</p>
+          <p className={styles.dayLabel}>F</p>
+          <p className={styles.dayLabel}>S</p>
         </div>
 
-        <div className="grid mt-2 grid-cols-7 justify-items-center">
+        <div className={styles.daysGrid}>
           {days.map((day, index) => (
             <button
               key={index}
               className={clsx(
-                "relative select-none",
+                styles.dayButton,
                 (index === 0 && colStartClasses[getDay(day)]) || "",
-                "p-2 rounded-lg text-sm text-gray-700",
                 isEqual(day, date) && !isToday(day)
-                  ? "after:absolute after:top-0 after:rounded-lg after:-z-10 after:left-1/2 after:-translate-x-1/2 after:w-[31.58px] after:h-9 after:bg-gray-700 text-white after:hover:bg-gray-500/80"
+                  ? styles.selectedDay
+                  : "",
+                isEqual(day, date) && !isToday(day)
+                  ? styles.selectedDayHover
                   : "",
                 !isEqual(day, date) && isToday(day)
-                  ? "text-red-500"
+                  ? styles.today
                   : "",
                 !isEqual(day, date) &&
                   !isToday(day) &&
                   isSameMonth(day, firstDayCurrentMonth)
-                  ? "text-gray-900"
+                  ? styles.currentMonth
                   : "",
                 !isEqual(day, date) &&
                   !isToday(day) &&
                   !isSameMonth(day, firstDayCurrentMonth)
-                  ? "text-slate-300"
+                  ? styles.otherMonth
                   : "",
                 isEqual(day, date) &&
                   !isToday(day) &&
                   !isSameMonth(day, firstDayCurrentMonth)
-                  ? "after:absolute after:top-0 after:rounded-lg after:-z-10 after:left-1/2 after:-translate-x-1/2 after:w-[31.58px] after:h-9 after:bg-slate-400 text-white after:hover:bg-gray-300"
+                  ? styles.otherMonthSelected
                   : "",
                 isEqual(day, date) && isToday(day)
-                  ? "after:absolute after:top-0 after:rounded-lg after:-z-10 after:left-1/2 after:-translate-x-1/2 after:w-[31.58px] after:h-9 after:bg-red-600 text-white hover:bg-red-500/70"
+                  ? styles.todaySelected
                   : "",
-                !isEqual(day, date)
-                  ? "hover:after:opacity-100 hover:after:absolute hover:after:top-0 hover:after:rounded-lg hover:after:-z-10 hover:after:left-1/2 hover:after:-translate-x-1/2 hover:after:w-[31.58px] hover:after:h-9 hover:after:bg-gray-200"
+                isEqual(day, date) && isToday(day)
+                  ? styles.todaySelectedHover
                   : "",
+                !isEqual(day, date) ? styles.dayButtonHover : "",
                 isEqual(day, date) || isToday(day)
-                  ? "font-semibold"
+                  ? styles.fontSemiBold
                   : ""
               )}
               onClick={() => setDate(day)}

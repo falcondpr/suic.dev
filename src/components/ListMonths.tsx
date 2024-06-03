@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { format } from "date-fns";
 
 import { viewStore } from "../store/view";
+import styles from "./ListMonths.module.css";
 
 interface ListMonthsProps {
   date: Date;
@@ -34,13 +35,13 @@ const ListMonths: React.FC<ListMonthsProps> = ({
       <header>
         <button
           onClick={() => setActiveView("years")}
-          className="hover:border-transparent py-1 px-3 hover:bg-gray-200/30 rounded-md text-lg font-semibold text-gray-800"
+          className={styles.headerButton}
         >
           {format(date, "yyyy")}
         </button>
       </header>
 
-      <div className="grid grid-cols-3 gap-2 mt-2">
+      <div className={styles.monthGrid}>
         {months.map((month, index) => (
           <button
             onClick={() => {
@@ -48,14 +49,14 @@ const ListMonths: React.FC<ListMonthsProps> = ({
               setActiveView("calendar");
             }}
             className={clsx(
-              "p-2 hover:bg-gray-100 text-gray-600 rounded-md uppercase",
+              styles.monthButton,
               format(date, "MMMM") === month.english
-                ? "bg-red-600 text-white hover:bg-red-500"
+                ? styles.selectedMonth
                 : "",
               new Date().getMonth() === month.value &&
                 date.getFullYear() === new Date().getFullYear() &&
                 date.getMonth() !== month.value
-                ? "ring-1 ring-red-300"
+                ? styles.currentMonth
                 : ""
             )}
             key={index}

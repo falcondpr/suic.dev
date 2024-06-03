@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { format } from "date-fns";
 
 import { viewStore } from "../store/view";
+import styles from "./ListYears.module.css";
 
 interface ListYearsProps {
   date: Date;
@@ -10,7 +11,7 @@ interface ListYearsProps {
 
 const ListYears: React.FC<ListYearsProps> = ({ date, setYear }) => {
   const years = [];
-  for (let year = 2030; year >= 1900; year--) {
+  for (let year = 2030; year >= 1930; year--) {
     years.push(year);
   }
 
@@ -18,7 +19,7 @@ const ListYears: React.FC<ListYearsProps> = ({ date, setYear }) => {
 
   return (
     <div>
-      <div className="grid grid-cols-3 gap-2">
+      <div className={styles.yearGrid}>
         {years.map((year, index) => (
           <button
             onClick={() => {
@@ -26,13 +27,13 @@ const ListYears: React.FC<ListYearsProps> = ({ date, setYear }) => {
               setActiveView("months");
             }}
             className={clsx(
-              "p-2 hover:bg-gray-100 text-gray-600 rounded-md",
+              styles.yearButton,
               +format(date, "yyyy") === year
-                ? "bg-red-600 text-white hover:bg-red-500"
+                ? styles.selectedYear
                 : "",
               new Date().getFullYear() === year &&
                 year !== date.getFullYear()
-                ? "ring-1 ring-red-300"
+                ? styles.currentYear
                 : ""
             )}
             key={index}

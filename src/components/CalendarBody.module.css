@@ -1,0 +1,127 @@
+/* CalendarBody.module.css */
+
+button {
+  border: none;
+  background-color: #fff;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button {
+  color: #4a4a4a; /* text-gray-700 */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* gap-x-2 */
+  user-select: none; /* select-none */
+}
+
+.buttonText {
+  font-weight: bold; /* font-bold */
+}
+
+.chevronIcon {
+  width: 1rem; /* w-4 */
+  height: 1rem; /* h-4 */
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem; /* gap-x-1 */
+}
+
+.navButton {
+  position: relative;
+  width: 2rem; /* w-8 */
+  height: 2rem; /* h-8 */
+  border-radius: 0.5rem; /* rounded-lg */
+  display: grid;
+  place-items: center;
+}
+
+.navButton:hover {
+  background-color: rgba(
+    229,
+    231,
+    235,
+    0.7
+  ); /* hover:bg-gray-200/50/70 */
+}
+
+.daysHeader {
+  display: grid;
+  margin-top: 0.5rem; /* mt-2 */
+  grid-template-columns: repeat(7, 1fr); /* grid-cols-7 */
+  justify-items: center;
+  gap: 0.25rem; /* gap-x-1 */
+}
+
+.dayLabel {
+  user-select: none; /* select-none */
+  font-size: 0.875rem; /* text-sm */
+  color: #9ca3af; /* text-gray-400 */
+}
+
+.daysGrid {
+  display: grid;
+  margin-top: 0.5rem; /* mt-2 */
+  grid-template-columns: repeat(7, 1fr); /* grid-cols-7 */
+  justify-items: center;
+}
+
+.dayButton {
+  position: relative;
+  user-select: none; /* select-none */
+  padding: 0.5rem; /* p-2 */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 0.875rem; /* text-sm */
+  color: #4a4a4a; /* text-gray-700 */
+}
+
+.selectedDay {
+  background-color: #4a4a4a; /* bg-gray-700 */
+  color: white;
+}
+
+.selectedDayHover {
+  background-color: rgba(74, 74, 74, 0.5); /* bg-gray-500/80 */
+}
+
+.today {
+  color: #ef4444; /* text-red-500 */
+}
+
+.currentMonth {
+  color: #1f2937; /* text-gray-900 */
+}
+
+.otherMonth {
+  color: #cbd5e1; /* text-slate-300 */
+}
+
+.otherMonthSelected {
+  background-color: #cbd5e1; /* bg-slate-400 */
+  color: white;
+}
+
+.todaySelected {
+  background-color: #dc2626; /* bg-red-600 */
+  color: white;
+}
+
+.todaySelectedHover {
+  background-color: rgba(220, 38, 38, 0.7); /* hover:bg-red-500/70 */
+}
+
+.dayButtonHover {
+  opacity: 100;
+}
+
+.fontSemiBold {
+  font-weight: 600; /* font-semibold */
+}

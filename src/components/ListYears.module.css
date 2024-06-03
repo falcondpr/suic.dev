@@ -1,0 +1,32 @@
+/* CalendarYears.module.css */
+
+.yearGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* grid-cols-3 */
+  gap: 0.5rem; /* gap-2 */
+}
+
+.yearButton {
+  padding: 0.5rem; /* p-2 */
+  border-radius: 0.375rem; /* rounded-md */
+  color: #4b5563; /* text-gray-600 */
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.yearButton:hover {
+  background-color: #f3f4f6; /* hover:bg-gray-100 */
+}
+
+.selectedYear {
+  background-color: #dc2626; /* bg-red-600 */
+  color: white; /* text-white */
+}
+
+.selectedYear:hover {
+  background-color: #b91c1c; /* hover:bg-red-500 */
+}
+
+.currentYear {
+  box-shadow: 0 0 0 2px rgba(252, 165, 165, 1); /* ring-1 ring-red-300 */
+}
