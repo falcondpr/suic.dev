@@ -1,6 +1,6 @@
 {
   "name": "suic.dev",
-  "version": "0.0.23",
+  "version": "0.0.26",
   "type": "module",
   "main": "./index.js",
   "module": "./index.js",
@@ -8,7 +8,8 @@
   "files": [
     "dist/**/*",
     "index.js",
-    "index.d.ts"
+    "index.d.ts",
+    "style.css"
   ],
   "scripts": {
     "dev": "vite",

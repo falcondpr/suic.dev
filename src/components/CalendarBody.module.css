@@ -72,12 +72,13 @@ button {
   margin-top: 0.5rem; /* mt-2 */
   grid-template-columns: repeat(7, 1fr); /* grid-cols-7 */
   justify-items: center;
+  gap: 0.15rem;
 }
 
 .dayButton {
   position: relative;
   user-select: none; /* select-none */
-  padding: 0.5rem; /* p-2 */
+  padding: 0.5rem 0.2rem; /* p-2 */
   border-radius: 0.5rem; /* rounded-lg */
   font-size: 0.875rem; /* text-sm */
   color: #4a4a4a; /* text-gray-700 */
