@@ -8,6 +8,7 @@ import ListYears from "./ListYears";
 import { viewStore } from "../store/view";
 
 import styles from "./Calendar.module.css";
+import "../index.css";
 
 interface CalendarProps {
   date: Date;
@@ -55,71 +56,76 @@ export const Calendar: React.FC<CalendarProps> = ({
 
   return (
     <AnimatePresence>
-      <div className={styles.calendar}>
-        <div className={styles.calendarContainer}>
-          <div className={styles.calendarSubContainer}>
-            <input
-              name="years"
-              value={String(date.getFullYear())}
-              onChange={(e) => setYear(e.target.value.toString())}
-              className={styles.input}
-              min={0}
-            />
-            <div className={styles.separator}>/</div>
-            <input
-              name="months"
-              value={String(date.getMonth() + 1)}
-              onChange={(e) => setMonth(e.target.value)}
-              className={styles.input2}
-            />
-            <div className={styles.separator}>/</div>
-            <input
-              type="day"
-              value={String(date.getDate())}
-              onChange={(e) => setDay(e.target.value)}
-              className={styles.input2}
-            />
+      <div className="suic-calendar">
+        <div className={styles.calendar}>
+          <div className={styles.calendarContainer}>
+            <div className={styles.calendarSubContainer}>
+              <input
+                name="years"
+                value={String(date.getFullYear())}
+                onChange={(e) => setYear(e.target.value.toString())}
+                className={styles.input}
+                min={0}
+              />
+              <div className={styles.separator}>/</div>
+              <input
+                name="months"
+                value={String(date.getMonth() + 1)}
+                onChange={(e) => setMonth(e.target.value)}
+                className={styles.input2}
+              />
+              <div className={styles.separator}>/</div>
+              <input
+                type="day"
+                value={String(date.getDate())}
+                onChange={(e) => setDay(e.target.value)}
+                className={styles.input2}
+              />
+            </div>
+
+            <button
+              className={styles.button}
+              onClick={() => (show ? setShow(false) : setShow(true))}
+            >
+              <CalendarIcon
+                size={20}
+                className={styles.calendarIcon}
+              />
+            </button>
           </div>
 
-          <button
-            className={styles.button}
-            onClick={() => (show ? setShow(false) : setShow(true))}
-          >
-            <CalendarIcon size={20} className={styles.calendarIcon} />
-          </button>
-        </div>
-
-        {show && (
-          <>
-            <div
-              className={styles.overlay}
-              onClick={() => setShow(false)}
-            />
-            <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.2 }}
-              className={styles.body}
-            >
+          {show && (
+            <div>
+              <div
+                className={styles.overlay}
+                onClick={() => setShow(false)}
+              />
               <motion.div
-                key={activeView}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+                className={styles.body}
               >
-                {activeView === "calendar" ? (
-                  <CalendarBody date={date} setDate={setDate} />
-                ) : activeView === "months" ? (
-                  <ListMonths date={date} setMonth={setMonth} />
-                ) : (
-                  <ListYears date={date} setYear={setYear} />
-                )}
+                <motion.div
+                  key={activeView}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {activeView === "calendar" ? (
+                    <CalendarBody date={date} setDate={setDate} />
+                  ) : activeView === "months" ? (
+                    <ListMonths date={date} setMonth={setMonth} />
+                  ) : (
+                    <ListYears date={date} setYear={setYear} />
+                  )}
+                </motion.div>
               </motion.div>
-            </motion.div>
-          </>
-        )}
+            </div>
+          )}
+        </div>
       </div>
     </AnimatePresence>
   );

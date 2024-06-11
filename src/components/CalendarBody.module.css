@@ -21,7 +21,7 @@ button {
 }
 
 .buttonText {
-  font-weight: bold; /* font-bold */
+  font-weight: 500; /* font-bold */
 }
 
 .chevronIcon {
@@ -124,5 +124,5 @@ button {
 }
 
 .fontSemiBold {
-  font-weight: 600; /* font-semibold */
+  font-weight: 500; /* font-semibold */
 }
