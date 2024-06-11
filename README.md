@@ -1,30 +1,79 @@
-# React + TypeScript + Vite
+# Simple UI Components
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This project is a component library designed to provide reusable and customizable UI components for React applications. Currently, the library includes a Calendar component with more components to be added in the future.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+To install the component library, use the following npm command:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+npm i suic.dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Usage
+
+To use the Calendar component in your React application, follow these steps:
+
+1. Import the required styles in your main file (`main.tsx` or equivalent):
+
+```typescript
+import "suic.dev/style.css";
+```
+
+2. Import and use the Calendar component in your React component:
+
+```tsx
+import { useState } from "react";
+import { Calendar } from "suic.dev";
+
+const App: React.FC = () => {
+  const [show, setShow] = useState<boolean>(false);
+  const [date, setDate] = useState<Date>(new Date());
+
+  return (
+    <div style={{ padding: 20 }}>
+      <Calendar
+        show={show}
+        setShow={setShow}
+        date={date}
+        setDate={setDate}
+      />
+    </div>
+  );
+};
+
+export default App;
+```
+
+### Props
+
+The `Calendar` component accepts the following props:
+
+- `show` (boolean): Controls the visibility of the calendar.
+- `setShow` (function): Function to update the visibility state.
+- `date` (Date): The currently selected date.
+- `setDate` (function): Function to update the selected date.
+
+## Contributing
+
+We welcome contributions to expand and improve this library. Please follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Make your changes and commit them.
+4. Push your changes to your fork.
+5. Create a pull request to the main repository.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+## Contact
+
+For any questions or issues, please contact [via X](https://twitter.com/fervillalbag).
+
+---
+
+Thank you for using our component library! We hope it helps you build beautiful and efficient applications.
