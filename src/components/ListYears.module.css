@@ -12,6 +12,7 @@
   color: #4b5563; /* text-gray-600 */
   background-color: transparent;
   border: 1px solid transparent;
+  cursor: pointer;
 }
 
 .yearButton:hover {

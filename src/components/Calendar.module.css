@@ -21,6 +21,18 @@
 
 .calendarSubContainer {
   display: flex;
+  position: relative;
+}
+
+.calendarSubContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  background-color: transparent;
 }
 
 .input {
@@ -48,6 +60,7 @@
   border: none;
   background-color: #fff;
   outline: none;
+  cursor: pointer;
 }
 
 .calendarIcon {

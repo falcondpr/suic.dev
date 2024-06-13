@@ -1,8 +1,11 @@
 import clsx from "clsx";
-import { format } from "date-fns";
+import { format, setDefaultOptions } from "date-fns";
 
 import { viewStore } from "../store/view";
 import styles from "./ListMonths.module.css";
+
+import { es } from "date-fns/locale";
+setDefaultOptions({ locale: es });
 
 interface ListMonthsProps {
   date: Date;
@@ -50,7 +53,7 @@ const ListMonths: React.FC<ListMonthsProps> = ({
             }}
             className={clsx(
               styles.monthButton,
-              format(date, "MMMM") === month.english
+              format(date, "MMMM") === month.spanish.toLowerCase()
                 ? styles.selectedMonth
                 : "",
               new Date().getMonth() === month.value &&
@@ -61,7 +64,7 @@ const ListMonths: React.FC<ListMonthsProps> = ({
             )}
             key={index}
           >
-            {month.english.slice(0, 3)}
+            {month.spanish.slice(0, 3)}
           </button>
         ))}
       </div>

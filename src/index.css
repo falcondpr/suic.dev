@@ -1,4 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@font-face {
+  font-family: "Noto_Regular";
+  src: url("./assets/fonts/NotoSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: 400;
+}
+
+@font-face {
+  font-family: "Noto_Semibold";
+  src: url("./assets/fonts/NotoSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: 500;
+}
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -9,6 +21,10 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+
+.suic-calendar > * {
+  font-family: "Noto_Regular";
+}
 
 .suic-calendar html {
   line-height: 1.15; /* 1 */

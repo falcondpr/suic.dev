@@ -11,12 +11,16 @@ import {
   isSameMonth,
   isToday,
   parse,
+  setDefaultOptions,
   startOfWeek,
 } from "date-fns";
 import clsx from "clsx";
 
 import { viewStore } from "../store/view";
 import styles from "./CalendarBody.module.css";
+
+import { es } from "date-fns/locale";
+setDefaultOptions({ locale: es });
 
 interface CalendarBodyProps {
   date: Date;
@@ -104,52 +108,57 @@ const CalendarBody: React.FC<CalendarBodyProps> = ({
         </div>
 
         <div className={styles.daysGrid}>
-          {days.map((day, index) => (
-            <button
-              key={index}
-              className={clsx(
-                styles.dayButton,
-                (index === 0 && colStartClasses[getDay(day)]) || "",
-                isEqual(day, date) && !isToday(day)
-                  ? styles.selectedDay
-                  : "",
-                isEqual(day, date) && !isToday(day)
-                  ? styles.selectedDayHover
-                  : "",
-                !isEqual(day, date) && isToday(day)
-                  ? styles.today
-                  : "",
-                !isEqual(day, date) &&
-                  !isToday(day) &&
-                  isSameMonth(day, firstDayCurrentMonth)
-                  ? styles.currentMonth
-                  : "",
-                !isEqual(day, date) &&
-                  !isToday(day) &&
-                  !isSameMonth(day, firstDayCurrentMonth)
-                  ? styles.otherMonth
-                  : "",
-                isEqual(day, date) &&
-                  !isToday(day) &&
-                  !isSameMonth(day, firstDayCurrentMonth)
-                  ? styles.otherMonthSelected
-                  : "",
-                isEqual(day, date) && isToday(day)
-                  ? styles.todaySelected
-                  : "",
-                isEqual(day, date) && isToday(day)
-                  ? styles.todaySelectedHover
-                  : "",
-                !isEqual(day, date) ? styles.dayButtonHover : "",
-                isEqual(day, date) || isToday(day)
-                  ? styles.fontSemiBold
-                  : ""
-              )}
-              onClick={() => setDate(day)}
-            >
-              {format(day, "d")}
-            </button>
-          ))}
+          {days.map((day, index) => {
+            const currentDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+            const currentDay = `${day.getDate()}/${day.getMonth()}/${day.getFullYear()}`;
+
+            return (
+              <button
+                key={index}
+                className={clsx(
+                  styles.dayButton,
+                  (index === 0 && colStartClasses[getDay(day)]) || "",
+                  isEqual(day, date) && !isToday(day)
+                    ? styles.selectedDay
+                    : "",
+                  isEqual(day, date) && !isToday(day)
+                    ? styles.selectedDayHover
+                    : "",
+                  !isEqual(day, date) && isToday(day)
+                    ? styles.today
+                    : "",
+                  !isEqual(day, date) &&
+                    !isToday(day) &&
+                    isSameMonth(day, firstDayCurrentMonth)
+                    ? styles.currentMonth
+                    : "",
+                  !isEqual(day, date) &&
+                    !isToday(day) &&
+                    !isSameMonth(day, firstDayCurrentMonth)
+                    ? styles.otherMonth
+                    : "",
+                  isEqual(day, date) &&
+                    !isToday(day) &&
+                    !isSameMonth(day, firstDayCurrentMonth)
+                    ? styles.otherMonthSelected
+                    : "",
+                  currentDate === currentDay && isToday(day)
+                    ? styles.todaySelected
+                    : "",
+                  currentDate === currentDay && isToday(day)
+                    ? styles.todaySelectedHover
+                    : "",
+                  !isEqual(day, date) ? styles.dayButtonHover : "",
+                  isEqual(day, date) || isToday(day)
+                    ? styles.fontSemiBold
+                    : ""
+                )}
+                onClick={() => setDate(day)}
+              >
+                {format(day, "d")}
+              </button>
+            );
+          })}
         </div>
       </main>
     </div>

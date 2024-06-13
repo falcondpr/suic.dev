@@ -23,8 +23,6 @@ export const Calendar: React.FC<CalendarProps> = ({
   setShow,
   show,
 }) => {
-  console.log("date", String(date.getFullYear()));
-
   const { activeView, setActiveView } = viewStore((state) => state);
 
   const setDay = (day: string) => {
@@ -49,7 +47,7 @@ export const Calendar: React.FC<CalendarProps> = ({
     const newDate = new Date(+year, date.getMonth(), date.getDate());
     setDate(newDate);
   };
-
+  // rgb(220, 38, 38)
   useEffect(() => {
     setActiveView("calendar");
   }, [show, setActiveView]);
@@ -62,11 +60,9 @@ export const Calendar: React.FC<CalendarProps> = ({
             <div className={styles.calendarSubContainer}>
               <input
                 type="number"
-                name="years"
-                value={String(date.getFullYear())}
-                onChange={(e) => setYear(e.target.value.toString())}
-                className={styles.input}
-                min={0}
+                value={String(date.getDate())}
+                onChange={(e) => setDay(e.target.value)}
+                className={styles.input2}
                 disabled
               />
               <div className={styles.separator}>/</div>
@@ -79,11 +75,14 @@ export const Calendar: React.FC<CalendarProps> = ({
                 disabled
               />
               <div className={styles.separator}>/</div>
+
               <input
                 type="number"
-                value={String(date.getDate())}
-                onChange={(e) => setDay(e.target.value)}
-                className={styles.input2}
+                name="years"
+                value={String(date.getFullYear())}
+                onChange={(e) => setYear(e.target.value.toString())}
+                className={styles.input}
+                min={0}
                 disabled
               />
             </div>

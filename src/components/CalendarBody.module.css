@@ -21,7 +21,9 @@ button {
 }
 
 .buttonText {
-  font-weight: 500; /* font-bold */
+  font-family: "Noto_Semibold", sans-serif; /* font-bold */
+  cursor: pointer;
+  text-transform: capitalize;
 }
 
 .chevronIcon {
@@ -42,6 +44,7 @@ button {
   border-radius: 0.5rem; /* rounded-lg */
   display: grid;
   place-items: center;
+  cursor: pointer;
 }
 
 .navButton:hover {
@@ -82,15 +85,18 @@ button {
   border-radius: 0.5rem; /* rounded-lg */
   font-size: 0.875rem; /* text-sm */
   color: #4a4a4a; /* text-gray-700 */
+  cursor: pointer;
 }
 
 .selectedDay {
   background-color: #4a4a4a; /* bg-gray-700 */
   color: white;
+  border-radius: 999px;
 }
 
 .selectedDayHover {
   background-color: rgba(74, 74, 74, 0.5); /* bg-gray-500/80 */
+  border-radius: 999px;
 }
 
 .today {
@@ -111,12 +117,14 @@ button {
 }
 
 .todaySelected {
+  border-radius: 999px;
   background-color: #dc2626; /* bg-red-600 */
   color: white;
 }
 
 .todaySelectedHover {
-  background-color: rgba(220, 38, 38, 0.7); /* hover:bg-red-500/70 */
+  background-color: rgb(220, 38, 38); /* hover:bg-red-500/70 */
+  border-radius: 999px;
 }
 
 .dayButtonHover {
@@ -124,5 +132,5 @@ button {
 }
 
 .fontSemiBold {
-  font-weight: 500; /* font-semibold */
+  font-family: "Noto_Semibold", sans-serif; /* font-semibold */
 }
