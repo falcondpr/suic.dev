@@ -61,25 +61,30 @@ export const Calendar: React.FC<CalendarProps> = ({
           <div className={styles.calendarContainer}>
             <div className={styles.calendarSubContainer}>
               <input
+                type="number"
                 name="years"
                 value={String(date.getFullYear())}
                 onChange={(e) => setYear(e.target.value.toString())}
                 className={styles.input}
                 min={0}
+                disabled
               />
               <div className={styles.separator}>/</div>
               <input
+                type="number"
                 name="months"
                 value={String(date.getMonth() + 1)}
                 onChange={(e) => setMonth(e.target.value)}
                 className={styles.input2}
+                disabled
               />
               <div className={styles.separator}>/</div>
               <input
-                type="day"
+                type="number"
                 value={String(date.getDate())}
                 onChange={(e) => setDay(e.target.value)}
                 className={styles.input2}
+                disabled
               />
             </div>
 
