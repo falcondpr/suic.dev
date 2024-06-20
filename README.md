@@ -1,7 +1,7 @@
 # Simple UI Components
 
 <div style="text-align: center;">
-  <img src="https://res.cloudinary.com/da6b7skw8/image/upload/v1718857054/ghyfo1zi0ouh9cr1sf5u.png" alt="Descripción de la imagen">
+  <img src="https://res.cloudinary.com/da6b7skw8/image/upload/v1718890556/ijnqphcbdlg0sxlwotsk.png" alt="Descripción de la imagen">
 </div>
 
 ## Description
