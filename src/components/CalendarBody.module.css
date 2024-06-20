@@ -21,7 +21,6 @@ button {
 }
 
 .buttonText {
-  font-family: "Noto_Semibold", sans-serif; /* font-bold */
   cursor: pointer;
   text-transform: capitalize;
 }
@@ -75,13 +74,15 @@ button {
   margin-top: 0.5rem; /* mt-2 */
   grid-template-columns: repeat(7, 1fr); /* grid-cols-7 */
   justify-items: center;
-  gap: 0.15rem;
+  gap: 0.1rem 0;
 }
 
 .dayButton {
   position: relative;
   user-select: none; /* select-none */
-  padding: 0.5rem 0.2rem; /* p-2 */
+  /* padding: 0.3rem;  p-2 */
+  width: 36px;
+  height: 36px;
   border-radius: 0.5rem; /* rounded-lg */
   font-size: 0.875rem; /* text-sm */
   color: #4a4a4a; /* text-gray-700 */
@@ -145,8 +146,4 @@ button {
 
 .dayButtonHover {
   opacity: 100;
-}
-
-.fontSemiBold {
-  font-family: "Noto_Semibold", sans-serif; /* font-semibold */
 }

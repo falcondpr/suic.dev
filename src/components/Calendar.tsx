@@ -25,19 +25,19 @@ export const Calendar: React.FC<CalendarProps> = ({
 }) => {
   const { activeView, setActiveView } = viewStore((state) => state);
 
-  const setDay = (day: string) => {
-    const newDate = new Date(
-      date.getFullYear(),
-      date.getMonth(),
-      +day
-    );
-    setDate(newDate);
-  };
+  // const setDay = (day: string) => {
+  //   const newDate = new Date(
+  //     date.getFullYear(),
+  //     date.getMonth(),
+  //     +day
+  //   );
+  //   setDate(newDate);
+  // };
 
   const setMonth = (month: string) => {
     const newDate = new Date(
       date.getFullYear(),
-      +month - 1,
+      +month,
       date.getDate()
     );
     setDate(newDate);
@@ -62,33 +62,14 @@ export const Calendar: React.FC<CalendarProps> = ({
               className={styles.calendarSubContainer}
               onClick={() => (show ? setShow(false) : setShow(true))}
             >
-              <input
-                type="number"
-                value={String(date.getDate())}
-                onChange={(e) => setDay(e.target.value)}
-                className={styles.input2}
-                disabled
-              />
+              <div className={styles.input2}>{date.getDate()}</div>
               <div className={styles.separator}>/</div>
-              <input
-                type="number"
-                name="months"
-                value={String(date.getMonth() + 1)}
-                onChange={(e) => setMonth(e.target.value)}
-                className={styles.input2}
-                disabled
-              />
+              <div className={styles.input2}>
+                {date.getMonth() + 1}
+              </div>
               <div className={styles.separator}>/</div>
 
-              <input
-                type="number"
-                name="years"
-                value={String(date.getFullYear())}
-                onChange={(e) => setYear(e.target.value.toString())}
-                className={styles.input}
-                min={0}
-                disabled
-              />
+              <div className={styles.input}>{date.getFullYear()}</div>
             </div>
 
             <button

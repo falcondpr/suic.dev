@@ -48,7 +48,7 @@ const ListMonths: React.FC<ListMonthsProps> = ({
         {months.map((month, index) => (
           <button
             onClick={() => {
-              setMonth((month.value + 1).toString());
+              setMonth(month.value.toString());
               setActiveView("calendar");
             }}
             className={clsx(

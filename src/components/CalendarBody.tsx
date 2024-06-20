@@ -28,7 +28,7 @@ interface CalendarBodyProps {
 }
 
 const colStartClasses = [
-  "",
+  "col-start-1",
   "col-start-2",
   "col-start-3",
   "col-start-4",
@@ -53,8 +53,10 @@ const CalendarBody: React.FC<CalendarBodyProps> = ({
   );
 
   const days = eachDayOfInterval({
-    start: startOfWeek(firstDayCurrentMonth),
-    end: endOfWeek(endOfMonth(firstDayCurrentMonth)),
+    start: startOfWeek(firstDayCurrentMonth, { weekStartsOn: 0 }), // Set week start to Sunday
+    end: endOfWeek(endOfMonth(firstDayCurrentMonth), {
+      weekStartsOn: 0,
+    }), // Set week end to Saturday
   });
 
   const previousMonth = () => {
@@ -98,12 +100,12 @@ const CalendarBody: React.FC<CalendarBodyProps> = ({
 
       <main>
         <div className={styles.daysHeader}>
-          <p className={styles.dayLabel}>S</p>
+          <p className={styles.dayLabel}>D</p>
+          <p className={styles.dayLabel}>L</p>
           <p className={styles.dayLabel}>M</p>
-          <p className={styles.dayLabel}>T</p>
-          <p className={styles.dayLabel}>W</p>
-          <p className={styles.dayLabel}>T</p>
-          <p className={styles.dayLabel}>F</p>
+          <p className={styles.dayLabel}>M</p>
+          <p className={styles.dayLabel}>J</p>
+          <p className={styles.dayLabel}>V</p>
           <p className={styles.dayLabel}>S</p>
         </div>
 
@@ -155,7 +157,7 @@ const CalendarBody: React.FC<CalendarBodyProps> = ({
                 )}
                 onClick={() => setDate(day)}
               >
-                {format(day, "d")}
+                {format(day, "dd")}
               </button>
             );
           })}

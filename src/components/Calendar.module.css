@@ -46,7 +46,7 @@
 
 .input2 {
   outline: none;
-  width: 28px;
+  width: 32px;
   text-align: center;
   background-color: #fff;
   border: none;
@@ -88,7 +88,7 @@
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   top: 54px;
   left: 0;
-  width: 256px;
+  width: 280px;
   height: min-content;
   max-height: 320px;
   overflow-y: auto;
