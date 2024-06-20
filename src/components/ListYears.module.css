@@ -20,14 +20,14 @@
 }
 
 .selectedYear {
-  background-color: #dc2626; /* bg-red-600 */
+  background-color: #222; /* bg-red-600 */
   color: white; /* text-white */
 }
 
 .selectedYear:hover {
-  background-color: #b91c1c; /* hover:bg-red-500 */
+  background-color: #333; /* hover:bg-red-500 */
 }
 
 .currentYear {
-  box-shadow: 0 0 0 2px rgba(252, 165, 165, 1); /* ring-1 ring-red-300 */
+  box-shadow: 0 0 0 2px #999; /* ring-1 ring-red-300 */
 }

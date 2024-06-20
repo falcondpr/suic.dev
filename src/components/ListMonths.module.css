@@ -14,19 +14,14 @@
 }
 
 .headerButton:hover {
-  background-color: rgba(
-    229,
-    231,
-    235,
-    0.3
-  ); /* hover:bg-gray-200/30 */
+  background-color: rgba(229, 231, 235, 0.3);
   border-color: transparent; /* hover:border-transparent */
 }
 
 .monthGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* grid-cols-3 */
-  gap: 0.5rem; /* gap-2 */
+  gap: 0.5rem 1rem; /* gap-2 */
   margin-top: 0.5rem; /* mt-2 */
 }
 
@@ -45,14 +40,14 @@
 }
 
 .selectedMonth {
-  background-color: #dc2626; /* bg-red-600 */
+  background-color: #222; /* bg-red-600 */
   color: white; /* text-white */
 }
 
 .selectedMonth:hover {
-  background-color: #b91c1c; /* hover:bg-red-500 */
+  background-color: #333; /* hover:bg-red-500 */
 }
 
 .currentMonth {
-  box-shadow: 0 0 0 2px rgba(252, 165, 165, 1); /* ring-1 ring-red-300 */
+  box-shadow: 0 0 0 2px #555; /* ring-1 ring-red-300 */
 }

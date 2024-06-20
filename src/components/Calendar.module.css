@@ -7,7 +7,7 @@
 .calendarContainer {
   display: flex;
   align-items: center;
-  gap: 0 12px;
+  gap: 0 8px;
   width: max-content;
   color: #333;
   position: relative;
@@ -22,6 +22,7 @@
 .calendarSubContainer {
   display: flex;
   position: relative;
+  cursor: pointer;
 }
 
 .calendarSubContainer::after {
@@ -56,7 +57,7 @@
 }
 
 .button {
-  width: min;
+  width: min-content;
   border: none;
   background-color: #fff;
   outline: none;

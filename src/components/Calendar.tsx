@@ -57,7 +57,11 @@ export const Calendar: React.FC<CalendarProps> = ({
       <div className="suic-calendar">
         <div className={styles.calendar}>
           <div className={styles.calendarContainer}>
-            <div className={styles.calendarSubContainer}>
+            <div
+              role="button"
+              className={styles.calendarSubContainer}
+              onClick={() => (show ? setShow(false) : setShow(true))}
+            >
               <input
                 type="number"
                 value={String(date.getDate())}

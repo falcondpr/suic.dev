@@ -23,7 +23,8 @@
  */
 
 .suic-calendar > * {
-  font-family: "Noto_Regular";
+  font-family: sans-serif;
+  line-height: 1;
 }
 
 .suic-calendar html {
@@ -37,11 +38,6 @@
 /**
  * Remove the margin in all browsers.
  */
-
-.suic-calendar body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-}
 
 /**
  * Render the `main` element consistently in IE.
