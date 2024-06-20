@@ -10,7 +10,17 @@ const App: React.FC = () => {
   const { showElement, setShowElement } = useContext(StatusContext);
 
   return (
-    <div style={{ padding: 12 }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        padding: 12,
+        margin: "-100px auto 0 auto",
+        width: "100%",
+        height: "100dvh",
+        alignItems: "center",
+      }}
+    >
       <div>
         <Calendar
           show={showElement}

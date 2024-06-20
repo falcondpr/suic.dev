@@ -1,5 +1,9 @@
 # Simple UI Components
 
+<div style="text-align: center;">
+  <img src="./demo.jpeg" alt="Descripción de la imagen">
+</div>
+
 ## Description
 
 This project is a component library designed to provide reusable and customizable UI components for React applications. Currently, the library includes a Calendar component with more components to be added in the future.
@@ -65,6 +69,13 @@ We welcome contributions to expand and improve this library. Please follow these
 3. Make your changes and commit them.
 4. Push your changes to your fork.
 5. Create a pull request to the main repository.
+
+## Contributors
+
+We would like to thank the following people for their contributions to the project:
+
+- [Martin Medina](https://github.com/macrohex): QA.
+- [Fernando Villalba](https://github.com/fervillalbag): Dev
 
 ## License
 
