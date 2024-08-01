@@ -6,7 +6,7 @@
 
 ## Description
 
-This project is a component library designed to provide reusable and customizable UI components for React applications. Currently, the library includes a Calendar component with more components to be added in the future.
+This component library offers a simple and minimalist calendar, designed to provide reusable and customizable user interface elements for React applications.
 
 ## Installation
 
